@@ -8,7 +8,7 @@ import Speech from './Speech';
  * @module core/awspack
  */
 
-export default {
+export {
   /**
    * @see core/TextToSpeechFeature
    */

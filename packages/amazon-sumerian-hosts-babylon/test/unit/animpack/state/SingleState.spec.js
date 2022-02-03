@@ -4,8 +4,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-underscore-dangle */
 import SingleState from 'app/animpack/state/SingleState';
-import {LayerBlendModes} from '@amazon-sumerian-hosts/core';
-import Deferred from '@amazon-sumerian-hosts/core';
+import { Deferred, LayerBlendModes } from '@amazon-sumerian-hosts/core';
 import describeEnvironment from '../../EnvironmentHarness';
 
 describeEnvironment('SingleState', (options = {}, env) => {

@@ -11,14 +11,30 @@ import Deferred from './Deferred';
 import {env} from './HostEnvironment';
 import Messenger from './Messenger';
 import HostObject from './HostObject';
-import LipsyncFeature, {DefaultVisemeMap} from './LipsyncFeature';
+import LipsyncFeature, { DefaultVisemeMap } from './LipsyncFeature';
 import GestureFeature, { DefaultGestureWords } from './GestureFeature';
 import PointOfInterestFeature, { AxisMap } from './PointOfInterestFeature';
 
-import aws from './awspack';
-import anim from './animpack';
+import { Easing,
+  AnimationFeature,
+  AnimationTypes,
+  AnimationLayer,
+  LayerBlendModes,
+  DefaultLayerBlendMode,
+  SingleState,
+  TransitionState,
+  FreeBlendState,
+  QueueState,
+  RandomAnimationState,
+  Blend1dState,
+  Blend2dState,
+  AnimationUtils } from './animpack';
 
-export default {
+import { TextToSpeechFeature,
+  TextToSpeechUtils,
+  Speech } from './awspack';
+
+export {
   /**
    * @see env
    */
@@ -67,12 +83,75 @@ export default {
    * @see AxisMap
    */
   AxisMap,
+
+  // Animpack
   /**
-   * @see module:core/awspack
+   * @see core/AnimationFeature
    */
-  aws,
+   AnimationFeature,
+   /**
+    * @see AnimationLayer
+    */
+   AnimationLayer,
+   /**
+    * @see core/SingleState
+    */
+   SingleState,
+   /**
+    * @see TransitionState
+    */
+   TransitionState,
+   /**
+    * @see FreeBlendState
+    */
+   FreeBlendState,
+   /**
+    * @see QueueState
+    */
+   QueueState,
+   /**
+    * @see RandomAnimationState
+    */
+   RandomAnimationState,
+   /**
+    * @see Blend1dState
+    */
+   Blend1dState,
+   /**
+    * @see Blend2dState
+    */
+   Blend2dState,
+   /**
+    * @see AnimationUtils
+    */
+   AnimationUtils,
+ 
+   Easing,
+   /**
+    * @see LayerBlendModes
+    */
+   LayerBlendModes,
+   /**
+    * @see DefaultLayerBlendMode
+    */
+   DefaultLayerBlendMode,
+   /**
+    * @see AnimationTypes
+    */
+   AnimationTypes,
+
+
+   // AWS Pack
   /**
-   * @see module:core/animpack
+   * @see core/TextToSpeechFeature
    */
-  anim,
+  TextToSpeechFeature,
+  /**
+   * @see core/TextToSpeechUtils
+   */
+  TextToSpeechUtils,
+  /**
+   * @see core/Speech
+   */
+  Speech,
 };

@@ -4,8 +4,6 @@ const webpack = require('webpack');
 const path = require('path');
 
 const corePath = path.resolve(__dirname, './src/core/');
-const threePath = path.resolve(__dirname, './src/three.js/');
-const babylonPath = path.resolve(__dirname, './src/Babylon.js/');
 
 const baseConfig = {
   mode: 'none',
@@ -13,11 +11,15 @@ const baseConfig = {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          }
+        ],
         exclude: /(node_modules|bower_components)/,
-        query: {
-          presets: ['@babel/preset-env'],
-        },
       },
     ],
   },
@@ -40,34 +42,4 @@ const coreConfig = {
   },
 };
 
-const threeConfig = {
-  ...baseConfig,
-  resolve: {
-    alias: {
-      ...baseConfig.resolve.alias,
-      app: threePath,
-    },
-  },
-  plugins: [
-    new webpack.ProvidePlugin({
-      THREE: 'three',
-    }),
-  ],
-};
-
-const babylonConfig = {
-  ...baseConfig,
-  resolve: {
-    alias: {
-      ...baseConfig.resolve.alias,
-      app: babylonPath,
-    },
-  },
-  plugins: [
-    new webpack.ProvidePlugin({
-      BABYLON: 'babylonjs',
-    }),
-  ],
-};
-
-module.exports = [coreConfig, threeConfig, babylonConfig];
+module.exports = [coreConfig];

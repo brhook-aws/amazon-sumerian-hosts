@@ -22,8 +22,10 @@ const baseConfig = {
     minimize: true,
     minimizer: [
       new TerserPlugin({
-        sourceMap: true,
         parallel: true,
+        terserOptions: {
+          sourceMap: true,
+        },
       }),
     ],
   },
@@ -32,15 +34,27 @@ const baseConfig = {
       {
         test: /\.(ico)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'file-loader?name=[name].[ext]',
+        use: [
+          {
+            loader: 'file-loader',
+            options: 
+            {
+              name: '[name].[ext]'
+            }
+          }
+        ]
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          }
+        ],
         exclude: /(node_modules|bower_components)/,
-        query: {
-          presets: ['@babel/preset-env'],
-        },
       },
     ],
   },
@@ -55,7 +69,7 @@ const baseConfig = {
 const threeConfig = {
   ...baseConfig,
   entry: {
-    'host.three': ['babel-polyfill', './src/three.js/index.js'],
+    'host.three': ['./src/three.js/index.js'],
   },
   resolve: {
     alias: {

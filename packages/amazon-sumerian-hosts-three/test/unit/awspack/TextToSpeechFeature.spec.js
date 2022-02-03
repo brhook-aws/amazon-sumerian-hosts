@@ -79,21 +79,6 @@ describeEnvironment('TextToSpeechFeature', (options, env) => {
   });
 
   describe('_synthesizeAudio', () => {
-    function itActsLikeCoreSynthesizeAudio() {
-      it("should return a promise that resolves to an object with an audio property that's an instance of Audio", async () => {
-        const tts = new TextToSpeechFeature(mockHost);
-        const promise = tts._synthesizeAudio({});
-
-        expect(promise).toBeInstanceOf(Promise);
-
-        const result = await promise;
-
-        expect(result).toBeInstanceOf(Object);
-        expect(result.audio).toBeDefined();
-        expect(result.audio).toBeInstanceOf(Audio);
-      });
-    }
-
     function itActsLikeThreeSynthesizeAudio() {
       it("should return a promise that resolves to an object with an audio property that's and instance of Audio", async () => {
         const listener = new THREE.AudioListener();
@@ -132,54 +117,7 @@ describeEnvironment('TextToSpeechFeature', (options, env) => {
         expect(result.threeAudio).toBeInstanceOf(THREE.PositionalAudio);
       });
     }
-
-    function itActsLikeBabylonSynthesizeAudio() {
-      it("should return a promise that resolves to an object with an audio property that's and instance of BABYLON.Sound", async () => {
-        const {scene} = options;
-        const tts = new TextToSpeechFeature(mockHost, {scene});
-        const promise = tts._synthesizeAudio({});
-
-        const result = await promise;
-
-        expect(result).toBeInstanceOf(Object);
-        expect(result.audio).toBeDefined();
-        expect(result.audio).toBeInstanceOf(BABYLON.Sound);
-      });
-
-      it("should define the result audio's spatialSound property to be false if attachTo is not defined in the constructor options", async () => {
-        const {scene} = options;
-        const tts = new TextToSpeechFeature(mockHost, {scene});
-        const promise = tts._synthesizeAudio({});
-
-        const {audio} = await promise;
-
-        expect(audio.spatialSound).toBeFalse();
-      });
-
-      it("should define the result audio's spatialSound property to be true if attachTo is defined in the constructor options", async () => {
-        const {scene} = options;
-        const attachTo = new BABYLON.TransformNode('attach', scene);
-        const tts = new TextToSpeechFeature(mockHost, {scene, attachTo});
-        const promise = tts._synthesizeAudio({});
-
-        const {audio} = await promise;
-
-        expect(audio.spatialSound).toBeTrue();
-      });
-    }
-
-    switch (env) {
-      case 'babylon':
-        itActsLikeBabylonSynthesizeAudio();
-        break;
-
-      case 'three':
-        itActsLikeThreeSynthesizeAudio();
-        break;
-
-      case 'core':
-      default:
-        itActsLikeCoreSynthesizeAudio();
-    }
+    
+    itActsLikeThreeSynthesizeAudio();
   });
 });

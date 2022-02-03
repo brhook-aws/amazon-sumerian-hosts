@@ -12,7 +12,7 @@ const baseConfig = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'HOST',
+    library: 'HOST_CORE',
     libraryTarget: 'umd',
     libraryExport: 'default',
     umdNamedDefine: true,
@@ -22,8 +22,10 @@ const baseConfig = {
     minimize: true,
     minimizer: [
       new TerserPlugin({
-        sourceMap: true,
         parallel: true,
+        terserOptions: {
+          sourceMap: true,
+        },
       }),
     ],
   },
@@ -32,15 +34,27 @@ const baseConfig = {
       {
         test: /\.(ico)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'file-loader?name=[name].[ext]',
+        use: [
+          {
+            loader: 'file-loader',
+            options: 
+            {
+              name: '[name].[ext]'
+            }
+          }
+        ]
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          }
+        ],
         exclude: /(node_modules|bower_components)/,
-        query: {
-          presets: ['@babel/preset-env'],
-        },
       },
     ],
   },
@@ -60,7 +74,7 @@ const baseConfig = {
 const coreConfig = {
   ...baseConfig,
   entry: {
-    'host.core': ['babel-polyfill', './src/core/index.js'],
+    'host.core': ['./src/core/index.js'],
   },
   resolve: {
     alias: {

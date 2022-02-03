@@ -9,6 +9,12 @@ const babylonPath = path.resolve(__dirname, 'src/Babylon.js/');
 const baseConfig = {
   mode: 'production',
   devtool: 'eval-source-map',
+  resolve: {
+    modules: [
+      path.resolve(__dirname, '../../node_modules'), 'node_modules',
+      path.resolve(__dirname, 'amazon-sumerian-hosts/node_modules/@amazon-sumerian-hosts/core'), '@amazon-sumerian-hosts/core',
+    ],
+  },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
@@ -22,8 +28,10 @@ const baseConfig = {
     minimize: true,
     minimizer: [
       new TerserPlugin({
-        sourceMap: true,
         parallel: true,
+        terserOptions: {
+          sourceMap: true,
+        },
       }),
     ],
   },
@@ -32,15 +40,27 @@ const baseConfig = {
       {
         test: /\.(ico)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'file-loader?name=[name].[ext]',
+        use: [
+          {
+            loader: 'file-loader',
+            options: 
+            {
+              name: '[name].[ext]'
+            }
+          }
+        ]
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
+          }
+        ],
         exclude: /(node_modules|bower_components)/,
-        query: {
-          presets: ['@babel/preset-env'],
-        },
       },
     ],
   },

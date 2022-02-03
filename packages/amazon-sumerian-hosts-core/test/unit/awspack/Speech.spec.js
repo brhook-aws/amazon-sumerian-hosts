@@ -42,11 +42,6 @@ describeEnvironment('Speech', (_options, env) => {
     });
 
     const audioConfig = {audio: mockAudio};
-    if (env === 'three') {
-      audioConfig.threeAudio = new THREE.Audio(new THREE.AudioListener());
-      mockAudio.play = spyOn(audioConfig.threeAudio, 'play');
-      mockAudio.pause = spyOn(audioConfig.threeAudio, 'pause');
-    }
 
     speech = new Speech(speaker, '', [], audioConfig);
   });
