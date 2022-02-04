@@ -4,9 +4,9 @@ const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 
-const corePath = path.resolve(__dirname, './src/core/');
-const threePath = path.resolve(__dirname, 'src/three.js/');
-const babylonPath = path.resolve(__dirname, 'src/Babylon.js/');
+const corePath = path.resolve(__dirname, 'packages/amazon-sumerian-hosts-core/src/core/');
+const threePath = path.resolve(__dirname, 'packages/amazon-sumerian-hosts-three/src/three.js/');
+const babylonPath = path.resolve(__dirname, 'packages/amazon-sumerian-hosts-babylon/src/Babylon.js/');
 
 const baseConfig = {
   mode: 'production',
@@ -62,7 +62,7 @@ const baseConfig = {
 const coreConfig = {
   ...baseConfig,
   entry: {
-    'host.core': ['babel-polyfill', './src/core/index.js'],
+    'host.core': ['babel-polyfill', './packages/amazon-sumerian-hosts-core/src/core/index.js'],
   },
   resolve: {
     alias: {
@@ -75,7 +75,7 @@ const coreConfig = {
 const threeConfig = {
   ...baseConfig,
   entry: {
-    'host.three': ['babel-polyfill', './src/three.js/index.js'],
+    'host.three': ['babel-polyfill', './packages/amazon-sumerian-hosts-three/src/three.js/index.js'],
   },
   resolve: {
     alias: {
@@ -88,7 +88,7 @@ const threeConfig = {
 const babylonConfig = {
   ...baseConfig,
   entry: {
-    'host.babylon': ['babel-polyfill', './src/Babylon.js/index.js'],
+    'host.babylon': ['babel-polyfill', './packages/amazon-sumerian-hosts-babylon/src/Babylon.js/index.js'],
   },
   resolve: {
     alias: {

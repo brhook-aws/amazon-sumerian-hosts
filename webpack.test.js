@@ -3,9 +3,9 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const corePath = path.resolve(__dirname, './src/core/');
-const threePath = path.resolve(__dirname, './src/three.js/');
-const babylonPath = path.resolve(__dirname, './src/Babylon.js/');
+const corePath = path.resolve(__dirname, 'packages/amazon-sumerian-hosts-core/src/core/');
+const threePath = path.resolve(__dirname, 'packages/amazon-sumerian-hosts-three/src/three.js/');
+const babylonPath = path.resolve(__dirname, 'packages/amazon-sumerian-hosts-babylon/src/Babylon.js/');
 
 const baseConfig = {
   mode: 'none',
