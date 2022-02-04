@@ -18,19 +18,21 @@ import {
   Back,
   Bounce,
 } from './Easing';
-import AnimationFeature, {AnimationTypes} from './AnimationFeature';
-import AnimationLayer, {
+
+export { default as AnimationFeature,
+  AnimationTypes } from './AnimationFeature';
+  export { default as AnimationLayer,
   LayerBlendModes,
   DefaultLayerBlendMode,
 } from './AnimationLayer';
-import SingleState from './state/SingleState';
-import TransitionState from './state/TransitionState';
-import FreeBlendState from './state/FreeBlendState';
-import QueueState from './state/QueueState';
-import RandomAnimationState from './state/RandomAnimationState';
-import Blend1dState from './state/Blend1dState';
-import Blend2dState from './state/Blend2dState';
-import AnimationUtils from './AnimationUtils';
+export { default as SingleState } from './state/SingleState';
+export { default as TransitionState } from './state/TransitionState';
+export { default as FreeBlendState } from './state/FreeBlendState';
+export { default as QueueState } from './state/QueueState';
+export { default as RandomAnimationState } from './state/RandomAnimationState';
+export { default as Blend1dState } from './state/Blend1dState';
+export { default as Blend2dState } from './state/Blend2dState';
+export { default as AnimationUtils } from './AnimationUtils';
 
 /**
  * @namespace
@@ -81,59 +83,5 @@ const Easing = {
    */
   Bounce,
 };
-export default {
-  /**
-   * @see core/AnimationFeature
-   */
-  AnimationFeature,
-  /**
-   * @see AnimationLayer
-   */
-  AnimationLayer,
-  /**
-   * @see core/SingleState
-   */
-  SingleState,
-  /**
-   * @see TransitionState
-   */
-  TransitionState,
-  /**
-   * @see FreeBlendState
-   */
-  FreeBlendState,
-  /**
-   * @see QueueState
-   */
-  QueueState,
-  /**
-   * @see RandomAnimationState
-   */
-  RandomAnimationState,
-  /**
-   * @see Blend1dState
-   */
-  Blend1dState,
-  /**
-   * @see Blend2dState
-   */
-  Blend2dState,
-  /**
-   * @see AnimationUtils
-   */
-  AnimationUtils,
 
-  Easing,
-  /**
-   * @see LayerBlendModes
-   */
-  LayerBlendModes,
-  /**
-   * @see DefaultLayerBlendMode
-   */
-  DefaultLayerBlendMode,
-  /**
-   * @see AnimationTypes
-   */
-  AnimationTypes,
-};
+export { Easing };

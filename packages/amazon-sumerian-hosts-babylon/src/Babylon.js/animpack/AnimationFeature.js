@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT-0
 import CoreAnimationFeature, {
   AnimationTypes,
-} from 'core/animpack/AnimationFeature';
+} from '@amazon-sumerian-hosts/core';
 import SingleState from './state/SingleState';
 
 AnimationTypes.single = SingleState;

@@ -1,6 +1,6 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
-import CorePointOfInterestFeature, { AxisMap } from 'core/PointOfInterestFeature';
+import CorePointOfInterestFeature, { AxisMap } from '@amazon-sumerian-hosts/core';
 
 /**
  * @extends core/PointOfInterestFeature

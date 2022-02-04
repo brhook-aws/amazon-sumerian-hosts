@@ -1,13 +1,13 @@
 {
-  "name": "@amazon-sumerian-hosts/babylon",
+  "name": "@amazon-sumerian-hosts/core",
   "version": "2.0.0",
   "description": "",
-  "main": "./dist/host.babylon.js",
+  "main": "./dist/host.core.js",
   "scripts": {
-    "test": "node ../../node_modules/karma/bin/karma start",
-    "build": "webpack --config ../../webpack.common.js",
+    "test": "node ../../node_modules/karma/bin/karma start karma.conf.js",
+    "build": "webpack --config webpack.common.js",
     "build-test": "npm run build; npm run test",
-    "start": "webpack-dev-server --open --config ../../webpack.dev.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
     "build-start": "npm run build; npm run start",
     "release": "npm run build",
     "docs": "jsdoc -c jsdoc.conf.json"
@@ -20,8 +20,6 @@
     "url": "git+https://github.com/aws-samples/amazon-sumerian-hosts.git"
   },
   "devDependencies": {
-    "@amazon-sumerian-hosts/core": "^2.0.0",
-    "babylonjs": "^4.1.0"
   },
   "optionalDependencies": {},
   "dependencies": {}

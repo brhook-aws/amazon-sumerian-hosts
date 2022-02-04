@@ -4,8 +4,8 @@
 /* eslint-disable no-empty */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jasmine/no-spec-dupes */
-import AbstractSpeech from 'core/awspack/AbstractSpeech';
-import Deferred from 'core/Deferred';
+import AbstractSpeech  from '@amazon-sumerian-hosts/core';
+import Deferred  from '@amazon-sumerian-hosts/core';
 import Messenger from 'app/Messenger';
 import describeEnvironment from '../EnvironmentHarness';
 

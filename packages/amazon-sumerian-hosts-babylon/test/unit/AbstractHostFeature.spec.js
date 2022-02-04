@@ -4,7 +4,7 @@
 /* eslint-disable jasmine/no-spec-dupes */
 /* eslint-disable jasmine/prefer-toHaveBeenCalledWith */
 /* eslint-disable no-underscore-dangle */
-import AbstractHostFeature from 'core/AbstractHostFeature';
+import AbstractHostFeature from '@amazon-sumerian-hosts/core';
 import Messenger from 'app/Messenger';
 import describeEnvironment from './EnvironmentHarness';
 

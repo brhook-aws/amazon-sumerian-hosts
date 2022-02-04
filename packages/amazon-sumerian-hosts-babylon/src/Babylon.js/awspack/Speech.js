@@ -1,7 +1,7 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
-import CoreSpeech from 'core/awspack/Speech';
-import AbstractSpeech from 'core/awspack/AbstractSpeech';
+import CoreSpeech from '@amazon-sumerian-hosts/core';
+import AbstractSpeech from '@amazon-sumerian-hosts/core';
 
 /**
  * @extends core/Speech

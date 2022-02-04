@@ -5,74 +5,34 @@
  * @module core/HOST
  */
 
-import Utils from './Utils';
-import MathUtils from './MathUtils';
-import Deferred from './Deferred';
-import {env} from './HostEnvironment';
-import Messenger from './Messenger';
-import HostObject from './HostObject';
-import LipsyncFeature, {DefaultVisemeMap} from './LipsyncFeature';
-import GestureFeature, { DefaultGestureWords } from './GestureFeature';
-import PointOfInterestFeature, { AxisMap } from './PointOfInterestFeature';
+export { default as Utils } from './Utils';
+export { default as MathUtils } from './MathUtils';
+export { default as Deferred } from './Deferred';
+export { env } from './HostEnvironment';
+export { default as CoreMessenger } from './Messenger';
+export { default as CoreHostObject } from './HostObject';
+export { default as LipsyncFeature, 
+  DefaultVisemeMap } from './LipsyncFeature';
+export  { default as GestureFeature,
+  DefaultGestureWords } from './GestureFeature';
+export { default as CorePointOfInterestFeature, 
+  AxisMap } from './PointOfInterestFeature';
 
-import aws from './awspack';
-import anim from './animpack';
+export { default as CoreAnimationFeature } from './animpack';
+export { default as AnimationLayer } from './animpack';
+export { default as CoreSingleState } from './animpack';
+export { default as TransitionState } from './animpack';
+export { default as FreeBlendState } from './animpack';
+export { default as QueueState } from './animpack';
+export { default as RandomAnimationState } from './animpack';
+export { default as Blend1dState } from './animpack';
+export { default as Blend2dState } from './animpack';
+export { default as AnimationUtils } from './animpack';
+export { default as Easing } from './animpack';
+export { default as LayerBlendModes } from './animpack';
+export { default as DefaultLayerBlendMode } from './animpack';
+export { default as AnimationTypes } from './animpack';
 
-export default {
-  /**
-   * @see env
-   */
-  env,
-  /**
-   * @see Utils
-   */
-  Utils,
-  /**
-   * @see MathUtils
-   */
-  MathUtils,
-  /**
-   * @see Deferred
-   */
-  Deferred,
-  /**
-   * @see core/Messenger
-   */
-  Messenger,
-  /**
-   * @see core/HostObject
-   */
-  HostObject,
-  /**
-   * @see core/LipsyncFeature
-   */
-  LipsyncFeature,
-  /**
-   * @see GestureFeature
-   */
-  GestureFeature,
-  /**
-   * @see core/PointOfInterestFeature
-   */
-  PointOfInterestFeature,
-  /**
-   * @see DefaultVisemeMap
-   */
-  DefaultVisemeMap,
-  /**
-   * @see DefaultGestureWords
-   */
-  DefaultGestureWords,
-  /**
-   * @see AxisMap
-   */
-  AxisMap,
-  /**
-   * @see module:core/awspack
-   */
-  aws,
-  /**
-   * @see module:core/animpack
-   */
-  anim,
-};
+export { default as CoreTextToSpeechFeature } from './awspack';
+export { default as TextToSpeechUtils } from './awspack';
+export { default as CoreSpeech } from './awspack';

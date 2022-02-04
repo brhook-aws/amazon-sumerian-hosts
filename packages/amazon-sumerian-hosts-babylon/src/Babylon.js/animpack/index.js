@@ -17,18 +17,18 @@ import {
   Elastic,
   Back,
   Bounce,
-} from 'core/animpack/Easing';
-import AnimationUtils from 'core/animpack/AnimationUtils';
-import TransitionState from 'core/animpack/state/TransitionState';
-import FreeBlendState from 'core/animpack/state/FreeBlendState';
-import QueueState from 'core/animpack/state/QueueState';
-import RandomAnimationState from 'core/animpack/state/RandomAnimationState';
-import Blend1dState from 'core/animpack/state/Blend1dState';
-import Blend2dState from 'core/animpack/state/Blend2dState';
+} from '@amazon-sumerian-hosts/core';
+import AnimationUtils from '@amazon-sumerian-hosts/core';
+import TransitionState from '@amazon-sumerian-hosts/core';
+import FreeBlendState from '@amazon-sumerian-hosts/core';
+import QueueState from '@amazon-sumerian-hosts/core';
+import RandomAnimationState from '@amazon-sumerian-hosts/core';
+import Blend1dState from '@amazon-sumerian-hosts/core';
+import Blend2dState from '@amazon-sumerian-hosts/core';
 import AnimationLayer, {
   LayerBlendModes,
   DefaultLayerBlendMode,
-} from 'core/animpack/AnimationLayer';
+} from '@amazon-sumerian-hosts/core';
 import AnimationFeature, {AnimationTypes} from './AnimationFeature';
 import SingleState from './state/SingleState';
 

@@ -5,9 +5,9 @@
 /* eslint-disable jasmine/prefer-toHaveBeenCalledWith */
 /* eslint-disable no-underscore-dangle */
 import Messenger from 'app/Messenger';
-import AbstractTextToSpeechFeature from 'core/awspack/AbstractTextToSpeechFeature';
-import AbstractSpeech from 'core/awspack/AbstractSpeech';
-import Deferred from 'core/Deferred';
+import AbstractTextToSpeechFeature from '@amazon-sumerian-hosts/core';
+import AbstractSpeech from '@amazon-sumerian-hosts/core';
+import Deferred from '@amazon-sumerian-hosts/core';
 import describeEnvironment from '../EnvironmentHarness';
 
 describeEnvironment('AbstractTextToSpeechFeature', () => {

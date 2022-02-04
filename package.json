@@ -6,12 +6,10 @@
     "./packages/amazon-sumerian-hosts-three"
   ],
   "scripts": {
-    "test": "node ./node_modules/karma/bin/karma start", 
-    "build": "webpack --config webpack.common.js",
-    "build-test": "npm run build; npm run test",
-    "start": "webpack-dev-server --open --config webpack.dev.js",
-    "build-start": "npm run build; npm run start",
-    "release": "npm run build",
+    "test": "npm run --workspaces test", 
+    "build": "npm run --workspaces build",
+    "build-test": "npm run --workspaces build; npm run --workspaces test",
+    "release": "npm run --workspaces build",
     "docs": "jsdoc -c jsdoc.conf.json"
   },
   "keywords": [],

@@ -33,7 +33,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'node_modules/regenerator-runtime/runtime.js',
-      'packages/**/test/unit/**/*.spec.js',
+      'test/unit/**/*.spec.js',
       {
         pattern: 'test/assets/*',
         watched: false,
@@ -48,7 +48,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'packages/**test/unit/**/*.spec.js': ['webpack'],
+      'test/unit/**/*.spec.js': ['webpack'],
     },
 
     // test results reporter to use

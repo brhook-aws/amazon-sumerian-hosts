@@ -1,7 +1,7 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
-import AbstractTextToSpeechFeature from 'core/awspack/AbstractTextToSpeechFeature';
-import CoreTextToSpeechFeature from 'core/awspack/TextToSpeechFeature';
+import AbstractTextToSpeechFeature from '@amazon-sumerian-hosts/core';
+import CoreTextToSpeechFeature from '@amazon-sumerian-hosts/core';
 
 /**
  * Babylonjs Scene object
