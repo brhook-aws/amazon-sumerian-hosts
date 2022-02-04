@@ -6,7 +6,7 @@ const path = require('path');
 const corePath = path.resolve(__dirname, './src/core/');
 
 const baseConfig = {
-  mode: 'none',
+  mode: 'development',
   module: {
     rules: [
       {

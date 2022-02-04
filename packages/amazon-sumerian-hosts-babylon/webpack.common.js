@@ -11,8 +11,7 @@ const baseConfig = {
   devtool: 'eval-source-map',
   resolve: {
     modules: [
-      path.resolve(__dirname, '../../node_modules'), 'node_modules',
-      path.resolve(__dirname, 'amazon-sumerian-hosts/node_modules/@amazon-sumerian-hosts/core'), '@amazon-sumerian-hosts/core',
+      path.resolve(__dirname, '../../node_modules'), 'node_modules'
     ],
   },
   output: {
