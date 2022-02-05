@@ -5,11 +5,11 @@
  * @module babylon/HOST
  */
 
-import Utils from '@amazon-sumerian-hosts/core';
-import MathUtils from '@amazon-sumerian-hosts/core';
-import Deferred from '@amazon-sumerian-hosts/core';
-import LipsyncFeature, {DefaultVisemeMap} from '@amazon-sumerian-hosts/core';
-import GestureFeature, {DefaultGestureWords} from '@amazon-sumerian-hosts/core';
+ import { Utils } from '@amazon-sumerian-hosts/core';
+ import { MathUtils } from '@amazon-sumerian-hosts/core';
+ import { Deferred } from '@amazon-sumerian-hosts/core';
+ import { LipsyncFeature, DefaultVisemeMap } from '@amazon-sumerian-hosts/core';
+ import { GestureFeature, DefaultGestureWords } from '@amazon-sumerian-hosts/core';
 import PointOfInterestFeature, {AxisMap} from './Babylon.js/PointOfInterestFeature';
 import {env} from './Babylon.js/HostEnvironment';
 import Messenger from './Babylon.js/Messenger';

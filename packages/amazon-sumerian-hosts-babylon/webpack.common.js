@@ -6,6 +6,18 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 const babylonPath = path.resolve(__dirname, 'src/Babylon.js/');
 
+const transpileModules = ["@amazon-sumerian-hosts/core"]; // using scoped packages
+const PATH_DELIMITER = "[\\\\/]"; // match 2 antislashes or one slash
+const safePath = (module) => module.split(/[\\\/]/g).join(PATH_DELIMITER);
+const generateIncludes = (modules) => {
+  return [
+    new RegExp(`(${modules.map(safePath).join("|")})$`),
+    new RegExp(
+      `(${modules.map(safePath).join("|")})${PATH_DELIMITER}(?!.*node_modules)`
+    ),
+  ];
+};
+
 const babylonConfig = {
   mode: 'production',
   devtool: 'eval-source-map',
@@ -39,6 +51,7 @@ const babylonConfig = {
       },
       {
         test: /\.js$/,
+        include: generateIncludes(transpileModules),
         loader: 'babel-loader',
         exclude: /(node_modules|bower_components)/,
         query: {
@@ -56,8 +69,9 @@ const babylonConfig = {
   resolve: {
     alias: {
       app: babylonPath,
-      core: "@amazon-sumerian-hosts/core"
+      // '@amazon-sumerian-hosts/core': require.resolve('@amazon-sumerian-hosts/core'),
     },
+    // symlinks: false
   },
 };
 

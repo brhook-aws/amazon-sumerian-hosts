@@ -1,7 +1,7 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
-import CoreSingleState from '@amazon-sumerian-hosts/core';
-import MathUtils from '@amazon-sumerian-hosts/core';
+import { CoreSingleState } from '@amazon-sumerian-hosts/core';
+import { MathUtils } from '@amazon-sumerian-hosts/core';
 
 /**
  * Babylonjs AnimationGroup object

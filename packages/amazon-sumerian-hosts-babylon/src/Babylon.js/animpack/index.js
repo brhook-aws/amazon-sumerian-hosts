@@ -5,82 +5,21 @@
  * @module babylon/animpack
  */
 
-import {
-  Linear,
-  Quadratic,
-  Cubic,
-  Quartic,
-  Quintic,
-  Sinusoidal,
-  Exponential,
-  Circular,
-  Elastic,
-  Back,
-  Bounce,
-} from '@amazon-sumerian-hosts/core';
-import AnimationUtils from '@amazon-sumerian-hosts/core';
-import TransitionState from '@amazon-sumerian-hosts/core';
-import FreeBlendState from '@amazon-sumerian-hosts/core';
-import QueueState from '@amazon-sumerian-hosts/core';
-import RandomAnimationState from '@amazon-sumerian-hosts/core';
-import Blend1dState from '@amazon-sumerian-hosts/core';
-import Blend2dState from '@amazon-sumerian-hosts/core';
-import AnimationLayer, {
+import { Easing } from '@amazon-sumerian-hosts/core';
+import { AnimationUtils } from '@amazon-sumerian-hosts/core';
+import { TransitionState } from '@amazon-sumerian-hosts/core';
+import { FreeBlendState } from '@amazon-sumerian-hosts/core';
+import { QueueState } from '@amazon-sumerian-hosts/core';
+import { RandomAnimationState } from '@amazon-sumerian-hosts/core';
+import { Blend1dState } from '@amazon-sumerian-hosts/core';
+import { Blend2dState } from '@amazon-sumerian-hosts/core';
+import { AnimationLayer,
   LayerBlendModes,
   DefaultLayerBlendMode,
 } from '@amazon-sumerian-hosts/core';
 import AnimationFeature, {AnimationTypes} from './AnimationFeature';
 import SingleState from './state/SingleState';
 
-/**
- * @namespace
- */
-const Easing = {
-  /**
-   * @see Linear
-   */
-  Linear,
-  /**
-   * @see Quadratic
-   */
-  Quadratic,
-  /**
-   * @see Cubic
-   */
-  Cubic,
-  /**
-   * @see Quartic
-   */
-  Quartic,
-  /**
-   * @see Quintic
-   */
-  Quintic,
-  /**
-   * @see Sinusoidal
-   */
-  Sinusoidal,
-  /**
-   * @see Exponential
-   */
-  Exponential,
-  /**
-   * @see Circular
-   */
-  Circular,
-  /**
-   * @see Elastic
-   */
-  Elastic,
-  /**
-   * @see Back
-   */
-  Back,
-  /**
-   * @see Bounce
-   */
-  Bounce,
-};
 export default {
   /**
    * @see Babylon.js/AnimationFeature
