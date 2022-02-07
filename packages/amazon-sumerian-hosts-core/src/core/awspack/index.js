@@ -5,7 +5,7 @@
  * @module core/awspack
  */
 
-export { default as TextToSpeechFeature } from './TextToSpeechFeature';
+export { default as CoreTextToSpeechFeature } from './TextToSpeechFeature';
 export { default as TextToSpeechUtils } from './TextToSpeechUtils';
-export { default as Speech } from './Speech';
+export { default as CoreSpeech } from './Speech';
 

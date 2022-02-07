@@ -18,21 +18,23 @@ export  { default as GestureFeature,
 export { default as CorePointOfInterestFeature, 
   AxisMap } from './PointOfInterestFeature';
 
-export { default as CoreAnimationFeature } from './animpack';
-export { default as AnimationLayer } from './animpack';
-export { default as CoreSingleState } from './animpack';
-export { default as TransitionState } from './animpack';
-export { default as FreeBlendState } from './animpack';
-export { default as QueueState } from './animpack';
-export { default as RandomAnimationState } from './animpack';
-export { default as Blend1dState } from './animpack';
-export { default as Blend2dState } from './animpack';
-export { default as AnimationUtils } from './animpack';
-export { default as Easing } from './animpack';
-export { default as LayerBlendModes } from './animpack';
-export { default as DefaultLayerBlendMode } from './animpack';
-export { default as AnimationTypes } from './animpack';
+export { CoreAnimationFeature,
+  AnimationLayer, 
+  CoreSingleState,
+  TransitionState,
+  FreeBlendState,
+  QueueState,
+  RandomAnimationState,
+  Blend1dState,
+  Blend2dState,
+  AnimationUtils,
+  Easing,
+  LayerBlendModes,
+  DefaultLayerBlendMode,
+  AnimationTypes } from './animpack/index';
 
-export { default as CoreTextToSpeechFeature } from './awspack';
-export { default as TextToSpeechUtils } from './awspack';
-export { default as CoreSpeech } from './awspack';
+export { CoreTextToSpeechFeature,
+  TextToSpeechUtils,
+  CoreSpeech } from './awspack/index';
+export { default as AbstractSpeech } from './awspack/AbstractSpeech';
+export { default as AbstractTextToSpeechFeature } from './awspack/AbstractTextToSpeechFeature';

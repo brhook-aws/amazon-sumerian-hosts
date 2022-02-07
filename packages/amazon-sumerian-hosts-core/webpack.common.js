@@ -8,7 +8,7 @@ const corePath = path.resolve(__dirname, 'src/core/');
 
 const coreConfig = {
   mode: 'production',
-  devtool: 'eval-source-map',
+  devtool: 'eval-source-map', 
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
@@ -16,7 +16,9 @@ const coreConfig = {
     libraryTarget: 'umd',
     libraryExport: 'default',
     umdNamedDefine: true,
-    globalObject: '(typeof self !== "undefined" ? self : typeof global !== "undefined" ? global : this)'
+    globalObject: '(typeof self !== "undefined" ? self : typeof global !== "undefined" ? global : this)',
+    devtoolModuleFilenameTemplate: require('../webpack-utils')
+      .devtoolModuleFilenameTemplate,
   },
   entry: {
     'host.core': ['babel-polyfill', './src/core/index.js'],
@@ -61,4 +63,4 @@ const coreConfig = {
   },
 };
 
-module.exports = [coreConfig];
+module.exports = coreConfig;

@@ -19,10 +19,9 @@
     "type": "git",
     "url": "git+https://github.com/aws-samples/amazon-sumerian-hosts.git"
   },
-  "devDependencies": {
-    "@amazon-sumerian-hosts/core": "^2.0.0",
-    "babylonjs": "^4.1.0"
-  },
+  "devDependencies": {},
   "optionalDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "@amazon-sumerian-hosts/core": "^2.0.0",
+    "babylonjs": "^4.1.0"}
 }

@@ -51,10 +51,5 @@
     "webpack-dev-server": "^4.7.3",
     "webpack-merge": "^4.2.2"
   },
-  "optionalDependencies": {},
-  "dependencies": {
-    "@amazon-sumerian-hosts/core": "file:packages/amazon-sumerian-hosts-core",
-    "@amazon-sumerian-hosts/babylon": "file:packages/amazon-sumerian-hosts-babylon",
-    "@amazon-sumerian-hosts/three": "file:packages/amazon-sumerian-hosts-three"
-  }
+  "optionalDependencies": {}
 }

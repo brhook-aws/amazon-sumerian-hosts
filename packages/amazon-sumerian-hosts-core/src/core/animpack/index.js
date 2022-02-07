@@ -19,13 +19,13 @@ import {
   Bounce,
 } from './Easing';
 
-export { default as AnimationFeature,
+export { default as CoreAnimationFeature,
   AnimationTypes } from './AnimationFeature';
   export { default as AnimationLayer,
   LayerBlendModes,
   DefaultLayerBlendMode,
 } from './AnimationLayer';
-export { default as SingleState } from './state/SingleState';
+export { default as CoreSingleState } from './state/SingleState';
 export { default as TransitionState } from './state/TransitionState';
 export { default as FreeBlendState } from './state/FreeBlendState';
 export { default as QueueState } from './state/QueueState';

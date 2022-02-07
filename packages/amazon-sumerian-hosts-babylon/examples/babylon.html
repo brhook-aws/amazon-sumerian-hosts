@@ -197,7 +197,7 @@
         });
         const polly = new AWS.Polly();
         const presigner = new AWS.Polly.Presigner();
-        const speechInit = HOST.aws.TextToSpeechFeature.initializeService(
+        const speechInit = HOST_BABYLON.aws.TextToSpeechFeature.initializeService(
           polly,
           presigner,
           window.AWS.VERSION
@@ -377,12 +377,12 @@
           host2.TextToSpeechFeature.EVENTS.resume,
           onHost2StartSpeech
         );
-        HOST.aws.TextToSpeechFeature.listenTo(
-          HOST.aws.TextToSpeechFeature.EVENTS.pause,
+        HOST_BABYLON.aws.TextToSpeechFeature.listenTo(
+          HOST_BABYLON.aws.TextToSpeechFeature.EVENTS.pause,
           onStopSpeech
         );
-        HOST.aws.TextToSpeechFeature.listenTo(
-          HOST.aws.TextToSpeechFeature.EVENTS.stop,
+        HOST_BABYLON.aws.TextToSpeechFeature.listenTo(
+          HOST_BABYLON.aws.TextToSpeechFeature.EVENTS.stop,
           onStopSpeech
         );
 
@@ -562,13 +562,13 @@
         camera
       ) {
         // Add the host to the render loop
-        const host = new HOST.HostObject({owner: character});
+        const host = new HOST_BABYLON.HostObject({owner: character});
         scene.onBeforeAnimationsObservable.add(() => {
           host.update();
         });
 
         // Set up text to speech
-        host.addFeature(HOST.aws.TextToSpeechFeature, false, {
+        host.addFeature(HOST_BABYLON.aws.TextToSpeechFeature, false, {
           scene,
           attachTo: audioAttachJoint,
           voice,
@@ -576,34 +576,34 @@
         });
 
         // Set up animation
-        host.addFeature(HOST.anim.AnimationFeature);
+        host.addFeature(HOST_BABYLON.anim.AnimationFeature);
 
         // Base idle
         host.AnimationFeature.addLayer('Base');
         host.AnimationFeature.addAnimation(
           'Base',
           idleClip.name,
-          HOST.anim.AnimationTypes.single,
+          HOST_BABYLON.anim.AnimationTypes.single,
           {clip: idleClip}
         );
         host.AnimationFeature.playAnimation('Base', idleClip.name);
 
         // Face idle
         host.AnimationFeature.addLayer('Face', {
-          blendMode: HOST.anim.LayerBlendModes.Additive,
+          blendMode: HOST_BABYLON.anim.LayerBlendModes.Additive,
         });
         BABYLON.AnimationGroup.MakeAnimationAdditive(faceIdleClip);
         host.AnimationFeature.addAnimation(
           'Face',
           faceIdleClip.name,
-          HOST.anim.AnimationTypes.single,
+          HOST_BABYLON.anim.AnimationTypes.single,
           {clip: faceIdleClip, from: 1 / 30, to: faceIdleClip.to}
         );
         host.AnimationFeature.playAnimation('Face', faceIdleClip.name);
 
         // Blink
         host.AnimationFeature.addLayer('Blink', {
-          blendMode: HOST.anim.LayerBlendModes.Additive,
+          blendMode: HOST_BABYLON.anim.LayerBlendModes.Additive,
           transitionTime: 0.075,
         });
         blinkClips.forEach(clip => {
@@ -612,7 +612,7 @@
         host.AnimationFeature.addAnimation(
           'Blink',
           'blink',
-          HOST.anim.AnimationTypes.randomAnimation,
+          HOST_BABYLON.anim.AnimationTypes.randomAnimation,
           {
             playInterval: 3,
             subStateOptions: blinkClips.map(clip => {
@@ -629,7 +629,7 @@
         // Talking idle
         host.AnimationFeature.addLayer('Talk', {
           transitionTime: 0.75,
-          blendMode: HOST.anim.LayerBlendModes.Additive,
+          blendMode: HOST_BABYLON.anim.LayerBlendModes.Additive,
         });
         host.AnimationFeature.setLayerWeight('Talk', 0);
         const talkClip = lipsyncClips.find(c => c.name === 'stand_talk');
@@ -638,7 +638,7 @@
         host.AnimationFeature.addAnimation(
           'Talk',
           talkClip.name,
-          HOST.anim.AnimationTypes.single,
+          HOST_BABYLON.anim.AnimationTypes.single,
           {clip: talkClip}
         );
         host.AnimationFeature.playAnimation('Talk', talkClip.name);
@@ -646,7 +646,7 @@
         // Gesture animations
         host.AnimationFeature.addLayer('Gesture', {
           transitionTime: 0.5,
-          blendMode: HOST.anim.LayerBlendModes.Additive,
+          blendMode: HOST_BABYLON.anim.LayerBlendModes.Additive,
         });
 
         gestureClips.forEach(clip => {
@@ -664,14 +664,14 @@
             host.AnimationFeature.addAnimation(
               'Gesture',
               name,
-              HOST.anim.AnimationTypes.queue,
+              HOST_BABYLON.anim.AnimationTypes.queue,
               config
             );
           } else {
             host.AnimationFeature.addAnimation(
               'Gesture',
               name,
-              HOST.anim.AnimationTypes.single,
+              HOST_BABYLON.anim.AnimationTypes.single,
               {clip}
             );
           }
@@ -687,7 +687,7 @@
           host.AnimationFeature.addAnimation(
             'Emote',
             name,
-            HOST.anim.AnimationTypes.single,
+            HOST_BABYLON.anim.AnimationTypes.single,
             {clip, loopCount: 1}
           );
         });
@@ -695,7 +695,7 @@
         // Viseme poses
         host.AnimationFeature.addLayer('Viseme', {
           transitionTime: 0.12,
-          blendMode: HOST.anim.LayerBlendModes.Additive,
+          blendMode: HOST_BABYLON.anim.LayerBlendModes.Additive,
         });
         host.AnimationFeature.setLayerWeight('Viseme', 0);
         const blendStateOptions = lipsyncClips.map(clip => {
@@ -711,7 +711,7 @@
         host.AnimationFeature.addAnimation(
           'Viseme',
           'visemes',
-          HOST.anim.AnimationTypes.freeBlend,
+          HOST_BABYLON.anim.AnimationTypes.freeBlend,
           {blendStateOptions}
         );
         host.AnimationFeature.playAnimation('Viseme', 'visemes');
@@ -720,7 +720,7 @@
         const children = character.getDescendants(false);
         poiConfig.forEach(config => {
           host.AnimationFeature.addLayer(config.name, {
-            blendMode: HOST.anim.LayerBlendModes.Additive,
+            blendMode: HOST_BABYLON.anim.LayerBlendModes.Additive,
           });
 
           // Find each pose clip and make it additive
@@ -735,7 +735,7 @@
           host.AnimationFeature.addAnimation(
             config.name,
             config.animation,
-            HOST.anim.AnimationTypes.blend2d,
+            HOST_BABYLON.anim.AnimationTypes.blend2d,
             {...config}
           );
 
@@ -750,12 +750,12 @@
         // Apply bindPoseOffset clip if it exists
         if (bindPoseOffset !== undefined) {
           host.AnimationFeature.addLayer('BindPoseOffset', {
-            blendMode: HOST.anim.LayerBlendModes.Additive,
+            blendMode: HOST_BABYLON.anim.LayerBlendModes.Additive,
           });
           host.AnimationFeature.addAnimation(
             'BindPoseOffset',
             bindPoseOffset.name,
-            HOST.anim.AnimationTypes.single,
+            HOST_BABYLON.anim.AnimationTypes.single,
             {clip: bindPoseOffset, from: 1 / 30, to: 2 / 30}
           );
           host.AnimationFeature.playAnimation(
@@ -779,31 +779,31 @@
               name: 'Talk',
               animation: 'stand_talk',
               blendTime: 0.75,
-              easingFn: HOST.anim.Easing.Quadratic.InOut,
+              easingFn: HOST_BABYLON.anim.Easing.Quadratic.InOut,
             },
           ],
         };
         host.addFeature(
-          HOST.LipsyncFeature,
+          HOST_BABYLON.LipsyncFeature,
           false,
           visemeOptions,
           talkingOptions
         );
 
         // Set up Gestures
-        host.addFeature(HOST.GestureFeature, false, {
+        host.addFeature(HOST_BABYLON.GestureFeature, false, {
           layers: {
             Gesture: {minimumInterval: 3},
             Emote: {
               blendTime: 0.5,
-              easingFn: HOST.anim.Easing.Quadratic.InOut,
+              easingFn: HOST_BABYLON.anim.Easing.Quadratic.InOut,
             },
           },
         });
 
         // Set up Point of Interest
         host.addFeature(
-          HOST.PointOfInterestFeature,
+          HOST_BABYLON.PointOfInterestFeature,
           false,
           {
             target: camera,
@@ -902,7 +902,7 @@
           const gestureArray = host.GestureFeature.createGenericGestureArray([
             'Gesture',
           ]);
-          speechInput.value = HOST.aws.TextToSpeechUtils.autoGenerateSSMLMarks(
+          speechInput.value = HOST_BABYLON.aws.TextToSpeechUtils.autoGenerateSSMLMarks(
             speechInput.value,
             gestureMap,
             gestureArray

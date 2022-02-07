@@ -4,19 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 
-const babylonPath = path.resolve(__dirname, 'src/Babylon.js/');
-
-const transpileModules = ["@amazon-sumerian-hosts/core"]; // using scoped packages
-const PATH_DELIMITER = "[\\\\/]"; // match 2 antislashes or one slash
-const safePath = (module) => module.split(/[\\\/]/g).join(PATH_DELIMITER);
-const generateIncludes = (modules) => {
-  return [
-    new RegExp(`(${modules.map(safePath).join("|")})$`),
-    new RegExp(
-      `(${modules.map(safePath).join("|")})${PATH_DELIMITER}(?!.*node_modules)`
-    ),
-  ];
-};
+const babylonPath = path.resolve(__dirname, './src/Babylon.js/');
 
 const babylonConfig = {
   mode: 'production',
@@ -24,14 +12,16 @@ const babylonConfig = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'HOST',
+    library: 'HOST_BABLYON',
     libraryTarget: 'umd',
     libraryExport: 'default',
     umdNamedDefine: true,
-    globalObject: '(typeof self !== "undefined" ? self : typeof global !== "undefined" ? global : this)'
+    globalObject: '(typeof self !== "undefined" ? self : typeof global !== "undefined" ? global : this)',
+    devtoolModuleFilenameTemplate: require('../webpack-utils')
+      .devtoolModuleFilenameTemplate,
   },
   entry: {
-    'host.babylon': ['./src/Babylon.js/index.js'],
+    'host.babylon': ['babel-polyfill', './src/Babylon.js/index.js'],
   },
   optimization: {
     minimize: true,
@@ -51,7 +41,6 @@ const babylonConfig = {
       },
       {
         test: /\.js$/,
-        include: generateIncludes(transpileModules),
         loader: 'babel-loader',
         exclude: /(node_modules|bower_components)/,
         query: {
