@@ -19,12 +19,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Build Documents
-        - uses: actions/setup-node@v1
-          with:
-            node-version: '16.x'
-            registry-url: 'https://registry.npmjs.org'
-        - run: npm install
-        - run: npm run docs
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+        run: npm install
+        run: npm run docs
       - name: Commit files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
