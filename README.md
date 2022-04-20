@@ -13,7 +13,7 @@ This library is licensed under the MIT-0 License. See the [LICENSE](LICENSE) fil
 
 # [Getting Started](#Getting-Started)
 
-This guide steps through the creation of [examples/three.html](examples/three.html) and [examples/babylon.html](examples/babylon.html), resulting in an interactive 3D character that animates and speaks the text you input into the textarea, rendered in the Web rendering engine of your choice.
+This  guide steps through the creation of [examples/three.html](examples/three.html) and [examples/babylon.html](examples/babylon.html), resulting in an interactive 3D character that animates and speaks the text you input into the textarea, rendered in the Web rendering engine of your choice. 
 
 ## [Prerequisites](#Prerequisites)
 
