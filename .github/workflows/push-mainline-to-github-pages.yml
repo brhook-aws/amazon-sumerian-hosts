@@ -6,7 +6,7 @@ name: Push mainline changes into gh-pages branch
 # events but only for the master branch
 on:
   push:
-    branches: [mainline]
+    branches: [local_2]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -31,9 +31,9 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git commit -m "Publish documents" -a
       - name: Push changes
-        uses: ad-m/github-push-action@gh-pages
+        uses: ad-m/github-push-action@gh-pages-2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
+          branch: gh-pages-2
           force: true
           directory: ./docs 
